@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:icon="clr-namespace:FontAwesome" 
+             x:Class="unemi_ac_v001.Vista.LoginView">
+    
+    <ScrollView>
+        
+        <StackLayout x:Name="pnlContainer">
+      <Grid RowDefinitions="160,*">
+        <Image Source="/Resources/img/crai_unemi.jpg" Aspect="AspectFill" Grid.Row="0"/>
+        <BoxView BackgroundColor="Black" Opacity="0.7" Grid.Row="0"/>
+        <Label Text="UNEMI" Grid.Row="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontSize="80"/>
+        <Grid Grid.Row="1" Margin="0,25,0,0">
+            <Frame x:Name="frmMain" VerticalOptions="Center" xct:ShadowEffect.Color="Black" Margin="15">
+                <StackLayout >
+                    <Label Text="¡Bienvenido!" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#002e45" FontSize="28" Padding="8"/>
+                    <StackLayout Visual="Material">
+                                <Entry Placeholder="Email" Keyboard="Email" BackgroundColor="White" PlaceholderColor="Gray" x:Name="User" Text="{Binding UserName}"/>
+                                <Entry Placeholder="Password" IsPassword="True" BackgroundColor="White" PlaceholderColor="Gray" x:Name="Password" Text="{Binding Password}"/>
+                    </StackLayout>
+                    <Button Text="¿Olvido su contraseña?" BackgroundColor="Transparent" HorizontalOptions="End" FontSize="12" Margin="0,0,15,0"/>
+                    <Button x:Name="btnLogin" Text="Login" BackgroundColor="#002e45" TextColor="White" CornerRadius="15" Margin="15,0" Padding="10" SizeChanged="MainPageSizeChanged" Clicked="btnLogin_Clicked" />
+                    <Label Text="Follow us" HorizontalOptions="Center" Margin="0,10"/>
+                    <Grid ColumnDefinitions="50,50,50" HorizontalOptions="Center" Visual="Material">
+                                <Button Text="{x:Static icon:faicons.Facebook}"   Style="{StaticResource button_social_media}" Grid.Column="0"   BackgroundColor="#3b5998" x:Name="btnFacebook" Clicked="btnFacebook_Clicked"/>
+                                <Button Text="{x:Static icon:faicons.Google}"     Style="{StaticResource button_social_media}" Grid.Column="1"   BackgroundColor="#ea4335" x:Name="btnGoogle"   Clicked="btnGoogle_Clicked"/>
+                                <Button Text="{x:Static icon:faicons.LinkedinIn}" Style="{StaticResource button_social_media}" Grid.Column="2"   BackgroundColor="#0a66c2" x:Name="btnLinkedIn" Clicked="btnLinkedIn_Clicked"/>
+                    </Grid>
+                    <Label HorizontalOptions="Center" Margin="0,10">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="¿No tienes una cuenta? " TextColor="Gray"/>
+                                    <Span Text="Contactanos" TextColor="#002e45" FontAttributes="Bold"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+       </Grid>
+      </StackLayout>
+    </ScrollView>
+</ContentPage>

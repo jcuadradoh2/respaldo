@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:unemi_ac_v001.ViewModel"
+             xmlns:t="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="unemi_ac_v001.View.Alumno">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                    <Grid RowDefinitions="60,*" Grid.Row="0">
+                    <Label Text="Alumnos matriculados" FontSize="Title" FontAttributes="Bold"  BackgroundColor="Transparent"/>
+                    <Grid Grid.Row="1" Margin="0,30,0,0">
+                        <Frame BackgroundColor="White" t:ShadowEffect.Color="Black" HorizontalOptions="Center" VerticalOptions="Center">
+                            <StackLayout>
+                                <Grid ColumnDefinitions="200,*,40" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Grid.Column="0">
+                                        <Grid ColumnDefinitions="20,*">
+                                            <Label Text="&#xE804;" FontFamily="icon" FontSize="18" Grid.Column="0" Margin="0,12,0,0"/>
+                                            <Entry HorizontalOptions="FillAndExpand" Placeholder="Search" Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2">
+                                        <Button x:Name="btnNuevo" Clicked="btnNuevo_Clicked" FontFamily="icon" Margin="0,2,0,0"  BackgroundColor="White" CornerRadius="30" Text="&#xE803;" TextColor="Black" FontSize="22"/>
+                                    </StackLayout>
+                                </Grid>
+                                <Line BackgroundColor="Black"></Line>
+                                <StackLayout Grid.Row="2">
+                                    <CollectionView SelectionMode="Single" ItemsSource="{Binding Alum}" BackgroundColor="White" x:Name="clvAlumno"  t:ShadowEffect.Color="Black">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                <StackLayout HorizontalOptions="StartAndExpand">
+                                                    <Label Text="{Binding Name}" TextColor="Black" FontSize="Body"/>
+                                                    <Label Text="{Binding Lastname}" TextColor="Black" FontSize="Body"/>
+                                                    <Label  Text="{Binding Cedula}" TextColor="Black" FontSize="Body"/>
+                                                </StackLayout>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                </StackLayout>
+                            </StackLayout>
+                            
+                        </Frame>
+                    </Grid>
+                   </Grid>
+               
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

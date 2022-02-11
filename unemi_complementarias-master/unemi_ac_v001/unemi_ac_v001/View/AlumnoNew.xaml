@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:t="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="unemi_ac_v001.View.AlumnoNew">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Visual="Material">
+                <Grid RowDefinitions="60,*" Grid.Row="0">
+                    <Label Text="Alumnos matriculados" FontSize="Title" FontAttributes="Bold"  BackgroundColor="Transparent"/>
+                    <Grid Grid.Row="1">
+                        <Frame Margin="15" BackgroundColor="White" t:ShadowEffect.Color="Black" HorizontalOptions="Center" VerticalOptions="Center">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Label Text="&#xF2BD;" FontSize="70" TextColor="Black" FontFamily="icon"/>
+                                    <Image Source="{Binding Foto}"  IsVisible="False"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Cedula:" Style="{StaticResource label_form_body}"/>
+                                    <Entry Placeholder="DNI" Text="{Binding Cedula}"/>
+                                </StackLayout>
+                                <Grid ColumnDefinitions="160,160" HorizontalOptions="Center">
+                                    <StackLayout Grid.Column="0">
+                                        <Label Text="Nombres: " Style="{StaticResource label_form_body}"/>
+                                        <Entry Placeholder="Name" Text="{Binding Name}"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1">
+                                        <Label Text="Apellidos: " Style="{StaticResource label_form_body}"/>
+                                        <Entry Placeholder="Lastname" Text="{Binding Lastname}"/>
+                                    </StackLayout>
+                                </Grid>
+                                <Line/>
+                                <StackLayout>
+                                    <Label Text="Email: " Style="{StaticResource label_form_body}"/>
+                                    <Entry Keyboard="Email" Placeholder="user@example.com" Text="{Binding Email}"/>
+                                </StackLayout>
+                                <Grid ColumnDefinitions="80,240" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Grid.Column="0">
+                                        <Label Text="CDG:" Style="{StaticResource label_form_body}"/>
+                                        <Entry Placeholder="+593" IsEnabled="False"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1">
+                                        <Label Text="Telefono: " Style="{StaticResource label_form_body}"/>
+                                        <Entry Placeholder="9670885XX" Text="{Binding Telefono}"/>
+                                    </StackLayout>
+                                </Grid>
+                                <StackLayout>
+                                    <Label Text="Fecha nacimiento: " Style="{StaticResource label_form_body}"/>
+                                    <DatePicker x:Name="dtFechaNacimiento" HorizontalOptions="FillAndExpand" Date="{Binding FNacimiento}"/>
+                                    
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,50,0,0">
+                                    <Button Text="Cancelar" BackgroundColor="#ea4335" Grid.Column="0"/>
+                                    <Button Text="Guardar" BackgroundColor="#002e45" Grid.Column="1" Command="{Binding Guardar}" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

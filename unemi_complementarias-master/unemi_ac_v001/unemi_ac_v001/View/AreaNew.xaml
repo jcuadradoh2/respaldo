@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:unemi_ac_v001.ViewModel"
+             xmlns:t="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="unemi_ac_v001.View.AreaNew">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Visual="Material">
+                    <Grid RowDefinitions="60,*" Grid.Row="0">
+                        <Label Text="Alumnos matriculados" FontSize="Title" FontAttributes="Bold"  BackgroundColor="Transparent"/>
+                        <Grid Grid.Row="1" Margin="0,30,0,0">
+                            <Frame  BackgroundColor="White" t:ShadowEffect.Color="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <StackLayout>
+                                    <StackLayout>
+                                        <Button Command="{Binding Eliminar}" Text="&#xE805;" FontFamily="icon" HorizontalOptions="End" x:Name="btnEliminar"  Clicked="btnEliminar_Clicked" FontSize="24" TextColor="Black" BackgroundColor="White"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="Name: " Style="{StaticResource label_form_body}"/>
+                                        <Entry  Text="{Binding Name}"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="Descripcion: " Style="{StaticResource label_form_body}"/>
+                                        <Editor AutoSize="TextChanges" Text="{Binding Description}" x:Name="txtDescripcion"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Entry  Text="{Binding Id}" IsVisible="False"/>
+                                        <CheckBox IsChecked="{Binding State}" x:Name="cbxEstado" IsVisible="False"/>
+                                    </StackLayout>
+                                    
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="15">
+                                        <Button Text="Cancelar" BackgroundColor="#ea4335" Grid.Column="0" Command="{Binding CancelarCommand}" Clicked="btnCancelar_Clicked" x:Name="btnCancelar"/>
+                                        <Button Text="Guardar" BackgroundColor="#002e45" Grid.Column="1" Command="{Binding Guardar}" x:Name="btnGuardar" Clicked="btnGuardar_Clicked"/>
+                                        </StackLayout>
+                                    
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
